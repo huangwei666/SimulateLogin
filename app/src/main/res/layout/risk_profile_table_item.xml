@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+<TableRow
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#ffffff">
+    <TextView
+        android:id="@+id/showxnd"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:textColor="#3500ff"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/xqd"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:textColor="#3500ff"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:textColor="#3500ff"
+        android:gravity="center"
+        android:scrollbars="vertical"/>
+    <TextView
+        android:id="@+id/property"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:textColor="#3500ff"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:textColor="#3500ff"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/credit"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:textColor="#3500ff"
+        android:gravity="center"/>
+</TableRow>
+
+</LinearLayout>

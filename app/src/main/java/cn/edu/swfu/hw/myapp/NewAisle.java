@@ -2,17 +2,14 @@ package cn.edu.swfu.hw.myapp;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageView;
 
 import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.callback.BitmapCallback;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import org.jsoup.Jsoup;
@@ -26,33 +23,28 @@ import java.util.regex.Pattern;
 
 import okhttp3.Call;
 
-public class MainActivity extends AppCompatActivity {
+public class NewAisle extends AppCompatActivity {
 
     public EditText etstuId;
     private EditText etstuPsw;
-    private EditText etCode;
-    private ImageView ivCode;
     private CheckBox checkBox, checkBox2;
     //声明一个SharedPreferences对象和一个Editor对象
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
-
-    //验证码url
-    private String codeUrl = "http://202.203.132.204:8019/(c5itei55ffluveaafibfulev)/CheckCode.aspx";
     //登录url
-    private String loginUrl = "http://202.203.132.204:8019/(c5itei55ffluveaafibfulev)/default2.aspx";
+    private String loginUrl = "http://202.203.132.204:8019/(c5itei55ffluveaafibfulev)/default5.aspx";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_new_aisle);
         checkBox = (CheckBox) findViewById(R.id.checkBox);
         checkBox2 = (CheckBox) findViewById(R.id.checkBox2);
         //获取preferences和editor对象
         preferences = getSharedPreferences("UserInfo", MODE_PRIVATE);
         editor = preferences.edit();
-        initView();
-        initCode();
+        etstuId = (EditText) findViewById(R.id.et_stuid);
+        etstuPsw = (EditText) findViewById(R.id.et_stupsw);
         /*
     启动程序时首先检查sharedPreferences中是否储存有用户名和密码
     若无，则将checkbox状态显示为未选中
@@ -75,49 +67,10 @@ public class MainActivity extends AppCompatActivity {
             checkBox2.setChecked(true);
         }
     }
-    private void initView() {
-        etstuId = (EditText) findViewById(R.id.et_stuid);
-        etstuPsw = (EditText) findViewById(R.id.et_stupsw);
-        etCode = (EditText) findViewById(R.id.et_code);
-        ivCode = (ImageView) findViewById(R.id.iv_code);
-    }
-    /**
-     * 加载验证码
-     */
-    private void initCode() {
-        OkHttpUtils
-                .get()
-                .url(codeUrl)
-                .build()
-                .connTimeOut(5000)
-                .execute(new BitmapCallback() {
-                    @Override
-                    public void onError(okhttp3.Call call, Exception e) {
-                        //加载失败
-                        String title = "获取网页失败";
-                        String mes = "网络不通，连接服务器失败，请稍后重试";
-                        showExitDialog00(title,mes);
-                    }
 
-                    @Override
-                    public void onResponse(Bitmap response) {
-                        //设置验证码
-                        ivCode.setImageBitmap(response);
-                    }
-                });
-    }
 
-    /**
-     * 切换验证码
-     *
-     * @param view
-     */
 
-    public void reloadcode(View view) {
-        codeUrl += '?';
-        //修改url后重新请求验证码
-        initCode();
-    }
+
 
     /**
      * 向服务器登录
@@ -128,9 +81,8 @@ public class MainActivity extends AppCompatActivity {
         //用户输入的值
         final String stuId = etstuId.getText().toString();
         final String stuPsw = etstuPsw.getText().toString();
-        String code = etCode.getText().toString();
         //这里应该做一些空值判断
-        if (stuId.equals("") || stuPsw.equals("") || code.equals("")) {
+        if (stuId.equals("") || stuPsw.equals("")) {
             String title = "";
             String mes = "用户名密码不能为空，请重新输入";
             showExitDialog00(title, mes);
@@ -160,16 +112,14 @@ public class MainActivity extends AppCompatActivity {
                     //loginUrl就是你请求登录的url
                     .url(loginUrl)
                     //下面数据抓包可以得到
-                    .addParams("__VIEWSTATE", "dDwyMDkyNTM5NDc2Ozs+M3iHJw9HiL+DZrsSQkdK6XN8YE0=")
-                    .addParams("__VIEWSTATEGENERATOR", "92719903")
+                    .addParams("__VIEWSTATE", "dDwtNTgxODgzNDk1O3Q8O2w8aTwxPjs+O2w8dDw7bDxpPDQ+Oz47bDx0PHA8O3A8bDxvbmNsaWNrOz47bDx3aW5kb3cuY2xvc2UoKVw7Oz4+Pjs7Pjs+Pjs+Pjs+ma9CuqoFzgztlig1T9/UCOZm3iE=")
+                    .addParams("__VIEWSTATEGENERATOR", "994E02A8")
                     .addParams("TextBox1", stuId) //学号，
                     .addParams("TextBox2", stuPsw)//密码
-                    .addParams("TextBox3", code) //验证码
                     .addParams("RadioButtonList1", "(unable to decode value)")
                     .addParams("Button1", "")
-                    .addParams("lbLanguage", "")
                     .addHeader("Host", "202.203.132.204:8019")
-                    .addHeader("Referer", "http://202.203.132.204:8019/(c5itei55ffluveaafibfulev)/default2.aspx")
+                    .addHeader("Referer", "http://202.203.132.204:8019/(c5itei55ffluveaafibfulev)/default5.aspx")
                     .build()
                     .connTimeOut(5000)
                     .execute(new StringCallback() {
@@ -191,12 +141,7 @@ public class MainActivity extends AppCompatActivity {
                         public void onResponse(String response) {
                             //System.out.println("onResponse");
                             //请求成功，response就是得到的html文件（网页源代码）
-                            if (response.contains("验证码不正确")) {
-                                //System.out.println("验证码不正确");
-                                String title = "";
-                                String mes = "验证码不正确";
-                                showExitDialog00(title, mes);
-                            } else if (response.contains("密码错误")) {
+                            if (response.contains("密码错误")) {
                                 //如果源代码包含“密码错误”
                                 String title = "";
                                 String mes = "验证码不正确";
@@ -210,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
                                 Map name = getNameOrFailedInfo(response);
                                 String name1 = (String) name.get("0");
                                 Intent intent = new Intent();
-                                intent.setClass(MainActivity.this, IndexMenu.class);
+                                intent.setClass(NewAisle.this, IndexMenu.class);
                                 intent.putExtra("name", name1);
                                 intent.putExtra("stud", etstuId.getText().toString());
                                 startActivity(intent);
@@ -223,8 +168,8 @@ public class MainActivity extends AppCompatActivity {
         //取消登录则结束
         finish();
     }
-    public void newaisle(View view){
-        Intent newaisle = new Intent(MainActivity.this,NewAisle.class);
+    public void oldaisle(View view){
+        Intent newaisle = new Intent(NewAisle.this,MainActivity.class);
         startActivity(newaisle);
     }
     //用jsoup解析网页获得学号+姓名

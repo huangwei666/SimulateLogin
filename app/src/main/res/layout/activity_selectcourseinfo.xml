@@ -7,31 +7,28 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:minHeight="30dp"
-        android:orientation="horizontal" >
-
+        android:orientation="horizontal">
         <TextView
-            android:layout_width="373dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:text="请选择所在学年及所在学期数"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="30dp"
-        android:orientation="horizontal" >
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:text="学年"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="20sp" />
 
         <Spinner
             android:id="@+id/spinner1"
-            android:layout_width="179dp"
+            android:layout_width="140dp"
             android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:text="学期"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="20sp" />
 
         <Spinner
             android:id="@+id/spinner2"
-            android:layout_width="172dp"
+            android:layout_width="60dp"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
@@ -40,19 +37,465 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="确认提交" />
+    <!--课表布局-->
+    <!--课表头部布局-->
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:minHeight="30dp"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:background="#FFCD6B">
+        <TableRow>
+            <TextView
+                android:layout_width="65dp"
+                android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/course"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:textSize="16sp" />
+            <TextView
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:text="星期一" />
+
+            <TextView
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:text="星期二" />
+
+            <TextView
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:text="星期三" />
+            <TextView
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:text="星期四" />
+            <TextView
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:text="星期五" />
+        </TableRow>
+    </TableLayout>
     </LinearLayout>
 
+    <!--第1~2节课布局-->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp">
 
+        <TableRow>
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="86dp"
+                android:background="#0099CC"
+                android:text="第1~2节" />
+
+            <TextView
+                android:id="@+id/Monday12"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12" />
+
+            <TextView
+                android:id="@+id/Tuesday12"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12"/>
+
+            <TextView
+                android:id="@+id/Wednesday12"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12"/>
+            <TextView
+                android:id="@+id/Thursday12"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12"/>
+            <TextView
+                android:id="@+id/Friday12"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12"/>
+        </TableRow>
+    </TableLayout>
+    </LinearLayout>
+    </HorizontalScrollView>
+
+    <!--第3~4节课布局-->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp">
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="86dp"
+                android:background="#0099CC"
+                android:text="第3~4节" />
+
+            <TextView
+                android:id="@+id/Monday34"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12" />
+
+            <TextView
+                android:id="@+id/Tuesday34"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12"/>
+
+            <TextView
+                android:id="@+id/Wednesday34"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12"/>
+            <TextView
+                android:id="@+id/Thursday34"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12"/>
+            <TextView
+                android:id="@+id/Friday34"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12"/>
+        </TableRow>
+    </TableLayout>
+    </LinearLayout>
+    </HorizontalScrollView>
+
+    <!--第5~6节课布局-->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp">
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="86dp"
+                android:background="#0099CC"
+                android:text="第5~6节" />
+
+            <TextView
+                android:id="@+id/Monday56"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12" />
+
+            <TextView
+                android:id="@+id/Tuesday56"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12"/>
+
+            <TextView
+                android:id="@+id/Wednesday56"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12"/>
+            <TextView
+                android:id="@+id/Thursday56"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12"/>
+            <TextView
+                android:id="@+id/Friday56"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12"/>
+        </TableRow>
+    </TableLayout>
+    </LinearLayout>
+    </HorizontalScrollView>
+
+    <!--第7~8节课布局-->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp">
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="86dp"
+                android:background="#0099CC"
+                android:text="第7~8节" />
+
+            <TextView
+                android:id="@+id/Monday78"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12" />
+
+            <TextView
+                android:id="@+id/Tuesday78"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12"/>
+
+            <TextView
+                android:id="@+id/Wednesday78"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12"/>
+            <TextView
+                android:id="@+id/Thursday78"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12"/>
+            <TextView
+                android:id="@+id/Friday78"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12"/>
+        </TableRow>
+    </TableLayout>
+    </LinearLayout>
+    </HorizontalScrollView>
+
+    <!--第9~10节课布局-->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp">
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="90dp"
+                android:background="#0099CC"
+                android:text="第9~10节" />
+
+            <TextView
+                android:id="@+id/Monday910"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12" />
+
+            <TextView
+                android:id="@+id/Tuesday910"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12"/>
+
+            <TextView
+                android:id="@+id/Wednesday910"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12"/>
+            <TextView
+                android:id="@+id/Thursday910"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12"/>
+            <TextView
+                android:id="@+id/Friday910"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12"/>
+        </TableRow>
+    </TableLayout>
+    </LinearLayout>
+    </HorizontalScrollView>
+
+    <!--第11~12节课布局-->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp">
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="86dp"
+                android:background="#0099CC"
+                android:text="第11~12节" />
+
+            <TextView
+                android:id="@+id/Monday1112"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12" />
+
+            <TextView
+                android:id="@+id/Tuesday1112"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12"/>
+
+            <TextView
+                android:id="@+id/Wednesday1112"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12"/>
+            <TextView
+                android:id="@+id/Thursday1112"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12"/>
+            <TextView
+                android:id="@+id/Friday1112"
+                android:layout_width="70dp"
+                android:layout_height="86dp"
+                android:background="#99CCFF"
+                android:layout_marginLeft="2dp"
+                android:scrollbars="vertical"
+                android:maxEms="12"/>
+        </TableRow>
+    </TableLayout>
+    </LinearLayout>
+    </HorizontalScrollView>
+    <!--课表布局完毕-->
 </LinearLayout>

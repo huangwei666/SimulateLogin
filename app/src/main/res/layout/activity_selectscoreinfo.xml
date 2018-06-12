@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:text="学年"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="20sp" />
+        <Spinner
+            android:id="@+id/spinnerxn"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:text="学期"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="20sp" />
+        <Spinner
+            android:id="@+id/spinnerxq"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/bt_submit_xnxq"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="确认提交" />
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#ffffff">
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:textColor="#3500ff"
+                android:text="学年"
+                android:textSize="20sp"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:textColor="#3500ff"
+                android:text="学期"
+                android:textSize="20sp"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:textColor="#3500ff"
+                android:text="名称"
+                android:textSize="20sp"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:textColor="#3500ff"
+                android:text="性质"
+                android:textSize="20sp"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:textColor="#3500ff"
+                android:text="分数"
+                android:textSize="20sp"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:textColor="#3500ff"
+                android:text="学分"
+                android:textSize="20sp"
+                android:gravity="center"/>
+        </TableRow>
+    </TableLayout>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <TableLayout
+        android:id="@+id/table_risk_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </TableLayout>
+    </HorizontalScrollView>
+</LinearLayout>
